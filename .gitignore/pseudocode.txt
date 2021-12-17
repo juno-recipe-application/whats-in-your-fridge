@@ -1,0 +1,30 @@
+// Create an app object (insert object name) 
+ 
+// Initialize preset data in the dedicated properties 
+// - apiURL 
+// - apiKey 
+// - userIngredientList 
+ 
+// Create a method (getUserInput) to update the variable (userIngredientList) || (userIngredient) based on if we choose to have multiple inputs or one singular input. This comes from a preset amount of given ingredients through and html form. 
+ 
+// Create a method (getRecipe) to make API calls, which takes the user input as a parameter (userIngredientList) 
+
+ 
+// When the API call is successful, display the result || results, again based on if we choose to return one or multiple recipes. Append the data to our chosen element of html. 
+
+ 
+// If the API call fails, display an error message. 
+
+ 
+
+    Create an init method to start off 
+
+   1. Get user input 
+
+   2. Use user input to call api  
+
+   3. Get returned object & filter through all properties  
+
+   4. Once filtered return properties to a variable 
+
+   5. Use variable to append to html element  
