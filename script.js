@@ -2,18 +2,17 @@ const recipeApp = {};
 
 recipeApp.init = () => {
     recipeApp.getUserInput();
-    recipeApp.getRecipes(recipeApp.userChoices[0], recipeApp.userChoices[1],recipeApp.userChoices[2]);
 }
 
+// make an array to store the user's choices, which we will pass to our API call
 recipeApp.userChoices = [];
 
 // Store url and key on gallery app object as a property
 recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
 recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 
-// get some data! set up a fetch request to the unspash api
+// API call
 recipeApp.getRecipes = (ingredient1, ingredient2, ingredient3) => {
-
     // set up query string parameters via setting up a URL and URL search params object
     const url = new URL(recipeApp.url);
     url.search = new URLSearchParams({
@@ -30,14 +29,17 @@ recipeApp.getRecipes = (ingredient1, ingredient2, ingredient3) => {
         });
 }
 
+// Make an array that stores the returned recipes 
 // recipeApp.recipes = [];
 
-
+// capture user ingredient choices 
 recipeApp.getUserInput = () => {
+    // get our dropdown menus
     const dropdown1 = document.getElementById("ingredient1");
     const dropdown2 = document.getElementById("ingredient2");
     const dropdown3 = document.getElementById("ingredient3");
 
+    // adding event listeners to each dropdown that captures the chosen value and puts it into an array on our app object 
     dropdown1.addEventListener("change", function () {
         console.log(dropdown1.value);
 
@@ -52,7 +54,6 @@ recipeApp.getUserInput = () => {
         recipeApp.userChoices.splice(1, 1, dropdown2.value);
 
         console.log(recipeApp.userChoices);
-
     });
 
     dropdown3.addEventListener("change", function () {
@@ -62,6 +63,8 @@ recipeApp.getUserInput = () => {
 
         console.log(recipeApp.userChoices);
     });
+
+    recipeApp.getRecipes(recipeApp.userChoices[0], recipeApp.userChoices[1], recipeApp.userChoices[2]);
 }
 
 recipeApp.init();
