@@ -1,0 +1,62 @@
+/* =============== TYPOGRAPHY ================= */
+
+@font-face {
+    font-family: "ObjectHeavy";
+    src: url("../assets/PPObjectSans-Heavy.ttf");
+}
+
+@font-face {
+    font-family: "ObjectBold";
+    src: url("../assets/PPObjectSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "ObjectRegular";
+    src: url("../assets/PPObjectSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "TelegrafBold";
+    src: url("../assets/PPTelegraf-Bold.ttf");
+}
+
+@font-face {
+    font-family: "TelegrafBold";
+    src: url("../assets/PPTelegraf-Bold.ttf");
+}
+
+@font-face {
+    font-family: "TelegrafRegular";
+    src: url("../assets/PPTelegraf-Regular.ttf");
+}
+
+
+body {
+    h1 {
+        font-family: "ObjectBold";
+    }
+    p, select {
+        font-family: "TelegrafRegular";
+    }
+    option {
+        font-family: "Helvetica";
+    }
+    select {
+        appearance: none;
+        border: 0px;
+        background-image: url("../assets/down-arrow.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: white;
+        width: 300px;
+        height: 50px;
+        padding: 10px;
+    }
+    input {
+        font-family: "TelegrafBold";
+        border: 2px solid black;
+        width: 300px;
+        height: 50px;
+        background-color: white;
+    }
+}
