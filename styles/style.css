@@ -369,3 +369,10 @@ body main .results .recipe-container img {
   margin-top: 10px;
   width: 250px;
 }
+body main .results .recipe-container button {
+  position: relative;
+  bottom: 0;
+}
+body main .results .recipe-container button:hover {
+  background-color: #8dd7e9;
+}
