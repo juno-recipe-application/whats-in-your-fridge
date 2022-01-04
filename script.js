@@ -8,7 +8,8 @@ recipeApp.init = () => {
 recipeApp.userChoices = [];
 
 // Store url and key on app object as a property
-recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
+// recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
+recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
 recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 
 // API call
@@ -17,10 +18,12 @@ recipeApp.getRecipes = () => {
     const url = new URL(recipeApp.url);
     url.search = new URLSearchParams({
         ingredients: recipeApp.userChoices,
-        number: 25,
+        addRecipeInformation: true,
+        fillIngredients: true,
+        number: 3,
         apiKey: recipeApp.apiKey,
         limitLicense: true,
-        ranking: 1,
+        // ranking: 1,
         ignorePantry: true
     });
 
@@ -29,11 +32,12 @@ recipeApp.getRecipes = () => {
             return response.json();
         }).then((jsonData) => {
             // Push recipes into global array
-            jsonData.forEach((recipe) => {
+            jsonData.results.forEach((recipe) => {
                 recipeApp.recipes.push(recipe);
             })
             console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
+            console.log(jsonData)
         });
 }
 
@@ -86,7 +90,7 @@ recipeApp.displayRecipes = (apiData) => {
     // get our result section
     const recipeSection = document.getElementsByClassName('results');
     console.log(recipeSection);
-    
+
     apiData.forEach((recipe) => {
         // create divs with class for styling
         const divElement = document.createElement('div');
@@ -104,7 +108,7 @@ recipeApp.displayRecipes = (apiData) => {
         // append info to our div elements
         divElement.appendChild(image);
         divElement.appendChild(recipeHeading);
-        
+
         // append div to section
         recipeSection[0].appendChild(divElement);
     })
