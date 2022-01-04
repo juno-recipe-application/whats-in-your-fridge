@@ -7,7 +7,7 @@ recipeApp.init = () => {
 // make a global array to store the user's choices, which we will pass to our API call
 recipeApp.userChoices = [];
 
-// Store url and key on gallery app object as a property
+// Store url and key on app object as a property
 recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
 recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 
@@ -16,7 +16,6 @@ recipeApp.getRecipes = () => {
     // set up query string parameters via setting up a URL and URL search params object
     const url = new URL(recipeApp.url);
     url.search = new URLSearchParams({
-        // ingredients: `${ingredient1},${ingredient2},${ingredient3}`,
         ingredients: recipeApp.userChoices,
         number: 25,
         apiKey: recipeApp.apiKey,
@@ -29,11 +28,16 @@ recipeApp.getRecipes = () => {
         .then((response) => {
             return response.json();
         }).then((jsonData) => {
-            console.log(jsonData);
+            // Push recipes into global array
+            jsonData.forEach((recipe) => {
+                recipeApp.recipes.push(recipe);
+            })
+            console.log(recipeApp.recipes);
+            recipeApp.displayRecipes(recipeApp.recipes);
         });
 }
 
-// Make an array that stores the returned recipes 
+// Make a global array that stores the returned recipes 
 recipeApp.recipes = [];
 
 
@@ -43,8 +47,6 @@ recipeApp.getUserInput = () => {
     // const dropdown1 = document.getElementById("ingredient1");
     // const dropdown2 = document.getElementById("ingredient2");
     // const dropdown3 = document.getElementById("ingredient3");
-
-
 
     // DOM to select form
     const userForm = document.getElementById('userForm')
@@ -65,7 +67,6 @@ recipeApp.getUserInput = () => {
         //     }
         // }
 
-
         //if using individual select boxes in HTML
         recipeApp.userChoices[0] = document.getElementById("ingredientOne").value;
         recipeApp.userChoices[1] = document.getElementById("ingredientTwo").value;
@@ -77,43 +78,37 @@ recipeApp.getUserInput = () => {
 
         // call it
         recipeApp.getRecipes();
-
-
-
-
     });
 }
 
 
+recipeApp.displayRecipes = (apiData) => {
+    // get our result section
+    const recipeSection = document.getElementsByClassName('results');
+    console.log(recipeSection);
+    
+    apiData.forEach((recipe) => {
+        // create divs with class for styling
+        const divElement = document.createElement('div');
+        divElement.setAttribute('class', "recipe-container");
 
-// adding event listeners to each dropdown that captures the chosen value and puts it into an array on our app object 
-//     dropdown1.addEventListener("change", function () {
-//         console.log(dropdown1.value);
+        // create images
+        const image = document.createElement('img');
+        image.src = recipe.image;
+        image.alt = recipe.title;
 
-//         recipeApp.userChoices.splice(0, 1, dropdown1.value);
+        // create text
+        const recipeHeading = document.createElement('h3');
+        recipeHeading.innerText = recipe.title;
 
-//         console.log(recipeApp.userChoices);
-//     });
-
-//     dropdown2.addEventListener("change", function () {
-//         console.log(dropdown2.value);
-
-//         recipeApp.userChoices.splice(1, 1, dropdown2.value);
-
-//         console.log(recipeApp.userChoices);
-//     });
-
-//     dropdown3.addEventListener("change", function () {
-//         console.log(dropdown3.value);
-
-//         recipeApp.userChoices.splice(2, 1, dropdown3.value);
-
-//         console.log(recipeApp.userChoices);
-//     });
-
-
-//     recipeApp.getRecipes(recipeApp.userChoices[0], recipeApp.userChoices[1], recipeApp.userChoices[2]);
-// }
+        // append info to our div elements
+        divElement.appendChild(image);
+        divElement.appendChild(recipeHeading);
+        
+        // append div to section
+        recipeSection[0].appendChild(divElement);
+    })
+}
 
 
 

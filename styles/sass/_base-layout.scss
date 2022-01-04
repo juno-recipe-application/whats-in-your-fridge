@@ -26,11 +26,19 @@ body {
             display: flex;
             flex-wrap: wrap;
             .recipe-container {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 background-color: white;
                 width: 300px;
                 margin: 40px 0px 0px 40px;
-                height: 400px;
                 border-radius: 15px;
+                img {
+                    margin-top: 10px;
+                    width: 250px;
+                }
             }
         }
     }
