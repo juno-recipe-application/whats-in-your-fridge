@@ -20,7 +20,7 @@ recipeApp.getRecipes = () => {
         ingredients: recipeApp.userChoices,
         addRecipeInformation: true,
         fillIngredients: true,
-        number: 10,
+        number: 3,
         apiKey: recipeApp.apiKey,
         limitLicense: true,
         // ranking: 1,
