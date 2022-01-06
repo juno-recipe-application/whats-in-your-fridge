@@ -10,17 +10,18 @@ recipeApp.userChoices = [];
 // Store url and key on app object as a property
 // recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
 recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
-recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
+// recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
+recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
 
 // API call
 recipeApp.getRecipes = () => {
     // set up query string parameters via setting up a URL and URL search params object
     const url = new URL(recipeApp.url);
     url.search = new URLSearchParams({
-        ingredients: recipeApp.userChoices,
+        includeIngredients: recipeApp.userChoices,
         addRecipeInformation: true,
         fillIngredients: true,
-        number: 3,
+        number: 1,
         apiKey: recipeApp.apiKey,
         limitLicense: true,
         // ranking: 1,
@@ -60,7 +61,7 @@ recipeApp.getUserInput = () => {
     userForm.addEventListener('submit', (e) => {
 
         e.preventDefault();
-
+        // recipeApp.userChoices = '';
         // create an array of ingredients from form to submit to api
 
         //if using multiple select options in HTML
@@ -101,23 +102,60 @@ recipeApp.displayRecipes = (apiData) => {
         image.src = recipe.image;
         image.alt = recipe.title;
 
-        // create button
-        const infoButton = document.createElement('button')
-        infoButton.innerText = 'See More'
-
         // create text
         const recipeHeading = document.createElement('h3');
         recipeHeading.innerText = recipe.title;
+
+        // create button
+        const infoButton = document.createElement('button');
+        infoButton.setAttribute('id', 'modalButton');
+        infoButton.innerText = 'See More';
+
+        // append button to div
+        divElement.appendChild(infoButton);
 
         // append info to our div elements
         divElement.appendChild(image);
         divElement.appendChild(recipeHeading);
 
-        // append button to div
-        divElement.appendChild(infoButton);
-
         // append div to section
         recipeSection[0].appendChild(divElement);
+
+        // get div element for modal
+        const modal = document.getElementById("moreInfoModal")
+
+        modalButton.addEventListener('click', function () {
+            document.getElementById('moreInfoModal').style.visibility = 'visible';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target == moreInfoModal) {
+                document.getElementById('moreInfoModal').style.visibility = "hidden"
+            }
+
+            // get all elements from modal div
+            const cuisineInfo = document.getElementById('cuisines');
+            const source = document.getElementById('sourceInfo');
+            const summeryInfo = document.getElementById('dishInfo');
+            const urlInfo = document.getElementById('webAddress');
+
+
+            // fill modal with info
+            cuisineInfo.innerText = recipe.cuisines;
+            source.innerText = recipe.sourceName;
+            summeryInfo.innerText = recipe.summary;
+            urlInfo.innerText = recipe.spoonacularSourceUrl;
+
+
+
+        });
+
+
+
+
+
+
+
     })
 }
 
