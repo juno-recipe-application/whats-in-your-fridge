@@ -21,7 +21,7 @@ recipeApp.getRecipes = () => {
         includeIngredients: recipeApp.userChoices,
         addRecipeInformation: true,
         fillIngredients: true,
-        number: 1,
+        number: 3,
         apiKey: recipeApp.apiKey,
         limitLicense: true,
         // ranking: 1,
@@ -32,19 +32,21 @@ recipeApp.getRecipes = () => {
         .then((response) => {
             return response.json();
         }).then((jsonData) => {
+
             // Push recipes into global array
             jsonData.results.forEach((recipe) => {
                 recipeApp.recipes.push(recipe);
             })
             console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
-            console.log(jsonData)
+
+            // console.log(jsonData.results);
+            // recipeApp.displayRecipes(jsonData.results);
         });
 }
 
 // Make a global array that stores the returned recipes 
 recipeApp.recipes = [];
-
 
 // capture user ingredient choices 
 recipeApp.getUserInput = () => {
@@ -86,11 +88,13 @@ recipeApp.getUserInput = () => {
     });
 }
 
-
 recipeApp.displayRecipes = (apiData) => {
     // get our result section
     const recipeSection = document.getElementsByClassName('results');
     console.log(recipeSection);
+
+    //empty our results section
+    recipeSection.innerHTML = '';
 
     apiData.forEach((recipe) => {
         // create divs with class for styling
@@ -122,32 +126,38 @@ recipeApp.displayRecipes = (apiData) => {
         recipeSection[0].appendChild(divElement);
 
         // get div element for modal
-        const modal = document.getElementById("moreInfoModal")
+        const modal = document.getElementById("moreInfoModal");
 
-        modalButton.addEventListener('click', function () {
+        infoButton.addEventListener('click', function () {
             document.getElementById('moreInfoModal').style.visibility = 'visible';
-        });
-
-        window.addEventListener('click', function (event) {
-            if (event.target == moreInfoModal) {
-                document.getElementById('moreInfoModal').style.visibility = "hidden"
-            }
 
             // get all elements from modal div
             const cuisineInfo = document.getElementById('cuisines');
             const source = document.getElementById('sourceInfo');
             const summeryInfo = document.getElementById('dishInfo');
             const urlInfo = document.getElementById('webAddress');
-
-
+            const extendedIngredients = document.getElementById('extendedIngredients')
+    
             // fill modal with info
-            cuisineInfo.innerText = recipe.cuisines;
+            cuisineInfo.innerHTML = recipe.cuisines;
             source.innerText = recipe.sourceName;
-            summeryInfo.innerText = recipe.summary;
+            summeryInfo.innerHTML = recipe.summary;
             urlInfo.innerText = recipe.spoonacularSourceUrl;
 
+            // write a function here that loops through the extended ingredients array and displays each title ***and image*** 
+            recipe.extendedIngredients.forEach((item) => {
+                const ingredient = document.createElement('li');
+                extendedIngredients.appendChild(ingredient);
+                ingredient.innerText = item.original;
+            })
+            
+            // write a function here that does the same thing for the missing ingredients
+        });
 
-
+        window.addEventListener('click', function (event) {
+            if (event.target == moreInfoModal) {
+                document.getElementById('moreInfoModal').style.visibility = "hidden"
+            }
         });
 
 
