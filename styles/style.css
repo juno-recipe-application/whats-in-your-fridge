@@ -272,13 +272,15 @@ html main input, html main button {
 }
 html main input:hover, html main button:hover {
   cursor: pointer;
-  background-color: rgba(10, 10, 10, 0.4);
+  background-color: rgba(50, 50, 50, 0.4);
+  -webkit-box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
 }
 html main ul {
   list-style-type: none;
 }
 html main h1 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-family: "ObjectBold";
   margin: 20px 0px 20px 0px;
 }
@@ -317,6 +319,8 @@ html main select {
 html main select:hover {
   cursor: pointer;
   background-color: rgba(150, 150, 150, 0.4);
+  -webkit-box-shadow: 0.5px 0.5px 1px rgba(10, 10, 10, 0.5);
+          box-shadow: 0.5px 0.5px 1px rgba(10, 10, 10, 0.5);
 }
 html main option {
   font-family: "Helvetica";
@@ -329,11 +333,17 @@ body main {
   display: flex;
 }
 body main .sidebar {
+  width: 700px;
   background-color: #8dd7e9;
 }
 body main .sidebar .select {
-  width: 500px;
+  width: 475px;
   padding-left: 20px;
+  background-color: #eaf7fa;
+  border-radius: 15px;
+}
+body main .sidebar .select h1 {
+  padding: 30px 0px 5px 0px;
 }
 body main .sidebar .select span {
   margin-bottom: 10px;
@@ -344,6 +354,9 @@ body main .sidebar .select form select {
 body main .sidebar .select form input {
   margin-top: 20px;
   margin-bottom: 50px;
+}
+body main .sidebar .pantry {
+  background-color: red;
 }
 body main .results {
   background-color: #d0e4e9;

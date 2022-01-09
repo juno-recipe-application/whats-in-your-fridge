@@ -16,13 +16,14 @@ html {
         }
         input:hover, button:hover  {
             cursor: pointer;
-            background-color: rgba(10, 10, 10, 0.4);
+            background-color: rgba(50, 50, 50, 0.4);
+            box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
         }
         ul {
             list-style-type: none;
         }
         h1 {
-            font-size: 2rem;
+            font-size: 2.25rem;
             font-family: "ObjectBold";
             margin: 20px 0px 20px 0px;
         }
@@ -59,6 +60,7 @@ html {
         select:hover {
             cursor: pointer;
             background-color: rgba(150, 150, 150, 0.4);
+            box-shadow: 0.5px 0.5px 1px rgba(10, 10, 10, 0.5);
         }
         option {
             font-family: "Helvetica";
