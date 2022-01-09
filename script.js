@@ -11,7 +11,6 @@ recipeApp.userChoices = [];
 recipeApp.recipes = [];
 
 // Store url and key on app object as a property
-// recipeApp.url = 'https://api.spoonacular.com/recipes/findByIngredients'
 recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
 recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 // recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
@@ -21,7 +20,7 @@ recipeApp.getRecipes = () => {
     // set up query string parameters via setting up a URL and URL search params object
     const url = new URL(recipeApp.url);
     url.search = new URLSearchParams({
-        ingredients: recipeApp.userChoices,
+        includeIngredients: recipeApp.userChoices,
         addRecipeInformation: true,
         fillIngredients: true,
         number: 3,
@@ -43,7 +42,6 @@ recipeApp.getRecipes = () => {
 
             console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
-            console.log(jsonData)
         });
 }
 
@@ -76,7 +74,8 @@ recipeApp.getUserInput = () => {
 recipeApp.displayRecipes = (apiData) => {
     // get our result section
     const recipeSection = document.getElementsByClassName('results');
-    console.log(recipeSection);
+
+    // empty our results section somehow
 
     apiData.forEach((recipe) => {
         // create divs with class for styling
@@ -96,10 +95,11 @@ recipeApp.displayRecipes = (apiData) => {
         const infoButton = document.createElement('button');
         infoButton.setAttribute('id', 'modalButton');
         infoButton.innerText = 'See More';
-        
+
         // append info to our div elements
         divElement.appendChild(image);
         divElement.appendChild(recipeHeading);
+        divElement.appendChild(infoButton);
 
         // append div to section
         recipeSection[0].appendChild(divElement);
@@ -118,7 +118,7 @@ recipeApp.displayRecipes = (apiData) => {
             const urlInfo = document.getElementById('webAddress');
             const extendedIngredients = document.getElementById('extendedIngredients');
             const missingIngredients = document.getElementById('missingIngredients');
-    
+
             // fill modal with info
             cuisineInfo.innerHTML = recipe.cuisines;
             source.innerText = recipe.sourceName;
@@ -131,7 +131,7 @@ recipeApp.displayRecipes = (apiData) => {
                 extendedIngredients.appendChild(ingredient);
                 ingredient.innerText = item.original;
             })
-            
+
             // same thing for the missing ingredients
             recipe.missedIngredients.forEach((item) => {
                 const ingredient = document.createElement('li');
