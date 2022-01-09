@@ -35,7 +35,7 @@ recipeApp.getRecipes = () => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error ("Oh no, the API call wasn't successful.");
+                throw new Error("Oh no, the API call wasn't successful.");
             }
         }).then((jsonData) => {
 
@@ -72,7 +72,21 @@ recipeApp.getUserInput = () => {
         recipeApp.userChoices[2] = document.getElementById("ingredientThree").value;
 
         // could use this as a prompt to display as html to double confirm choices 
+
         console.log("You have selected: " + recipeApp.userChoices);
+
+        // displaying user choice on pantry div on main page
+
+        // get li's from html
+        const UserSelection1 = document.getElementById('item1')
+        const UserSelection2 = document.getElementById('item2')
+        const UserSelection3 = document.getElementById('item3')
+
+        // put the user choices on each li
+        UserSelection1.innerText = recipeApp.userChoices[0];
+        UserSelection2.innerText = recipeApp.userChoices[1];
+        UserSelection3.innerText = recipeApp.userChoices[2];
+
 
         // call it
         recipeApp.getRecipes();
