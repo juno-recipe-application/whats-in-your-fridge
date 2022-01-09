@@ -259,29 +259,50 @@ html {
 html {
   font-size: 125%;
 }
-html body h1 {
-  font-size: 2rem;
-  font-family: "ObjectBold";
+html main input, html main button {
+  font-size: 1rem;
+  font-family: "TelegrafBold";
+  letter-spacing: 1px;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  text-transform: uppercase;
 }
-html body h3 {
+html main input:hover, html main button:hover {
+  cursor: pointer;
+  background-color: rgba(50, 50, 50, 0.4);
+  -webkit-box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+html main ul {
+  list-style-type: none;
+}
+html main h1 {
+  font-size: 2.25rem;
+  font-family: "ObjectBold";
+  margin: 20px 0px 20px 0px;
+}
+html main h3 {
   font-size: 1rem;
   font-family: "ObjectBold";
   font-weight: lighter;
 }
-html body span {
+html main span {
   display: block;
   font-size: 1rem;
   font-family: "ObjectRegular";
   font-weight: lighter;
 }
-html body a {
+html main a {
   font-family: "TelegrafBold";
   text-transform: uppercase;
 }
-html body p, html body select {
+html main p, html main select, html main li {
   font-family: "TelegrafRegular";
 }
-html body select {
+html main select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -295,24 +316,14 @@ html body select {
   height: 50px;
   padding: 10px;
 }
-html body option {
+html main select:hover {
+  cursor: pointer;
+  background-color: rgba(150, 150, 150, 0.4);
+  -webkit-box-shadow: 0.5px 0.5px 1px rgba(10, 10, 10, 0.5);
+          box-shadow: 0.5px 0.5px 1px rgba(10, 10, 10, 0.5);
+}
+html main option {
   font-family: "Helvetica";
-}
-html body input, html body button {
-  font-size: 1rem;
-  font-family: "TelegrafBold";
-  letter-spacing: 1px;
-  border: 2px solid black;
-  border-radius: 15px;
-  width: 300px;
-  height: 50px;
-  background-color: white;
-  text-transform: uppercase;
-}
-html body span .recipe-name {
-  font-size: 0.8rem;
-  font-family: "Readex Pro", sans-serif;
-  font-weight: 600;
 }
 
 /* =============== LAYOUT ================= */
@@ -321,20 +332,31 @@ body main {
   display: -ms-flexbox;
   display: flex;
 }
-body main .select {
-  width: 500px;
+body main .sidebar {
+  width: 700px;
   background-color: #8dd7e9;
-  padding-left: 20px;
 }
-body main .select span {
+body main .sidebar .select {
+  width: 475px;
+  padding-left: 20px;
+  background-color: #eaf7fa;
+  border-radius: 15px;
+}
+body main .sidebar .select h1 {
+  padding: 30px 0px 5px 0px;
+}
+body main .sidebar .select span {
   margin-bottom: 10px;
 }
-body main .select form select {
+body main .sidebar .select form select {
   margin-top: 10px;
 }
-body main .select form input {
+body main .sidebar .select form input {
   margin-top: 20px;
   margin-bottom: 50px;
+}
+body main .sidebar .pantry {
+  background-color: red;
 }
 body main .results {
   background-color: #d0e4e9;
@@ -362,10 +384,38 @@ body main .results .recipe-container {
           align-items: center;
   background-color: white;
   width: 300px;
+  height: 400px;
   margin: 40px 0px 0px 40px;
   border-radius: 15px;
 }
 body main .results .recipe-container img {
   margin-top: 10px;
   width: 250px;
+}
+body main .results .recipe-container button {
+  position: relative;
+  bottom: 0;
+}
+body main .results .recipe-container h3 {
+  font-family: "ObjectBold";
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+body main .results .modal {
+  visibility: hidden;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+body main .results .modal .modalDisplay {
+  background-color: white;
+  margin: 15% auto;
+  padding: 5px;
+  border: 1px solid black;
+  width: 50%;
 }

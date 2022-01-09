@@ -1,0 +1,23 @@
+body{
+  main{
+    .results{
+      .modal {
+        visibility: hidden;
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        .modalDisplay {
+          background-color: white;
+          margin: 15% auto; 
+          padding: 5px;
+          border: 1px solid black;
+          width: 50%;
+        }
+      }
+    }
+  }
+}

@@ -11,178 +11,198 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 </head>
 
 <body>
-<main>
-    <section class="select">
-        <h1>What's in your fridge?</h1>
-        <span class="select-span">Choose some ingredients:</span>
-        <form id="userForm" class="userForm">
-            <!-- <section class="choice1">
-                <select multiple name="ingredientMultiple" id="ingredientMultiple">
-                    <option value="apple">Apple</option>
-                    <option va lue="asiago">Asiago</option>
-                    <option value="bacon">Bacon</option>
-                    <option value="banana">Banana</option>
-                    <option value="beef">Beef</option>
-                    <option value="bell pepper">Bell pepper</option>
-                    <option value="bread">Bread</option>
-                    <option value="butter">Butter</option>
-                    <option value="carrot">Carrot</option>
-                    <option value="cheddar">Cheddar</option>
-                    <option value="cheese">Cheese</option>
-                    <option value="chicken">Chicken</option>
-                    <option value="chicken stock">Chicken stock</option>
-                    <option value="egg">Egg</option>
-                    <option value="eggplant">Eggplant</option>
-                    <option value="garlic">Garlic</option>
-                    <option value="ginger">Ginger</option>
-                    <option value="kale">Kale</option>
-                    <option value="milk">Milk</option>
-                    <option value="parmesan">Parmesan</option>
-                    <option value="peach">Peach</option>
-                    <option value="pork">Pork</option>
-                    <option value="raspberry">Raspberry</option>
-                    <option value="red onion">Red Onion</option>
-                    <option value="rice">Rice</option>
-                    <option value="ricotta">Ricotta</option>
-                    <option value="soy sauce">Soy sauce</option>
-                    <option value="spinach">Spinach</option>
-                    <option value="strawberry">Strawberry</option>
-                    <option value="sugar">Sugar</option>
-                    <option value="tomato">Tomato</option>
-                    <option value="tomato sauce">Tomato sauce</option>
-                    <option value="yellow onion">Yellow onion</option>
-                </select> -->
+    <main>
+        <section class="sidebar">
+            <div class="select">
+                <h1>What's in your fridge?</h1>
+                <span class="select-span">Choose some ingredients:</span>
+                <form id="userForm" class="userForm">
+                    <!-- <section class="choice1">
+                        <select multiple name="ingredientMultiple" id="ingredientMultiple">
+                            <option value="apple">Apple</option>
+                            <option va lue="asiago">Asiago</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="banana">Banana</option>
+                            <option value="beef">Beef</option>
+                            <option value="bell pepper">Bell pepper</option>
+                            <option value="bread">Bread</option>
+                            <option value="butter">Butter</option>
+                            <option value="carrot">Carrot</option>
+                            <option value="cheddar">Cheddar</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="chicken stock">Chicken stock</option>
+                            <option value="egg">Egg</option>
+                            <option value="eggplant">Eggplant</option>
+                            <option value="garlic">Garlic</option>
+                            <option value="ginger">Ginger</option>
+                            <option value="kale">Kale</option>
+                            <option value="milk">Milk</option>
+                            <option value="parmesan">Parmesan</option>
+                            <option value="peach">Peach</option>
+                            <option value="pork">Pork</option>
+                            <option value="raspberry">Raspberry</option>
+                            <option value="red onion">Red Onion</option>
+                            <option value="rice">Rice</option>
+                            <option value="ricotta">Ricotta</option>
+                            <option value="soy sauce">Soy sauce</option>
+                            <option value="spinach">Spinach</option>
+                            <option value="strawberry">Strawberry</option>
+                            <option value="sugar">Sugar</option>
+                            <option value="tomato">Tomato</option>
+                            <option value="tomato sauce">Tomato sauce</option>
+                            <option value="yellow onion">Yellow onion</option>
+                        </select> -->
 
-        <div class="choice1">
-            <select name="ingredientOne" id="ingredientOne">
-                <option value="">None</option>
-                <option value="apple">Apple</option>
-                <option value="asiago">Asiago</option>
-                <option value="bacon">Bacon</option>
-                <option value="banana">Banana</option>
-                <option value="beef">Beef</option>
-                <option value="bell pepper">Bell pepper</option>
-                <option value="bread">Bread</option>
-                <option value="butter">Butter</option>
-                <option value="carrot">Carrot</option>
-                <option value="cheddar">Cheddar</option>
-                <option value="cheese">Cheese</option>
-                <option value="chicken">Chicken</option>
-                <option value="chicken stock">Chicken stock</option>
-                <option value="egg">Egg</option>
-                <option value="eggplant">Eggplant</option>
-                <option value="garlic">Garlic</option>
-                <option value="ginger">Ginger</option>
-                <option value="kale">Kale</option>
-                <option value="milk">Milk</option>
-                <option value="parmesan">Parmesan</option>
-                <option value="peach">Peach</option>
-                <option value="pork">Pork</option>
-                <option value="raspberry">Raspberry</option>
-                <option value="red onion">Red Onion</option>
-                <option value="rice">Rice</option>
-                <option value="ricotta">Ricotta</option>
-                <option value="soy sauce">Soy sauce</option>
-                <option value="spinach">Spinach</option>
-                <option value="strawberry">Strawberry</option>
-                <option value="sugar">Sugar</option>
-                <option value="tomato">Tomato</option>
-                <option value="tomato sauce">Tomato sauce</option>
-                <option value="yellow onion">Yellow onion</option>
-            </select>
-        </div>
+                    <div class="choice1">
+                        <select name="ingredientOne" id="ingredientOne">
+                            <option value="">None</option>
+                            <option value="apple">Apple</option>
+                            <option value="asiago">Asiago</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="banana">Banana</option>
+                            <option value="beef">Beef</option>
+                            <option value="bell pepper">Bell pepper</option>
+                            <option value="bread">Bread</option>
+                            <option value="butter">Butter</option>
+                            <option value="carrot">Carrot</option>
+                            <option value="cheddar">Cheddar</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="chicken stock">Chicken stock</option>
+                            <option value="egg">Egg</option>
+                            <option value="eggplant">Eggplant</option>
+                            <option value="garlic">Garlic</option>
+                            <option value="ginger">Ginger</option>
+                            <option value="kale">Kale</option>
+                            <option value="milk">Milk</option>
+                            <option value="parmesan">Parmesan</option>
+                            <option value="peach">Peach</option>
+                            <option value="pork">Pork</option>
+                            <option value="raspberry">Raspberry</option>
+                            <option value="red onion">Red Onion</option>
+                            <option value="rice">Rice</option>
+                            <option value="ricotta">Ricotta</option>
+                            <option value="soy sauce">Soy sauce</option>
+                            <option value="spinach">Spinach</option>
+                            <option value="strawberry">Strawberry</option>
+                            <option value="sugar">Sugar</option>
+                            <option value="tomato">Tomato</option>
+                            <option value="tomato sauce">Tomato sauce</option>
+                            <option value="yellow onion">Yellow onion</option>
+                        </select>
+                    </div>
 
-        <div class="choice2">
-            <select name="ingredientTwo" id="ingredientTwo">
-                <option value="">None</option>
-                <option value="apple">Apple</option>
-                <option va lue="asiago">Asiago</option>
-                <option value="bacon">Bacon</option>
-                <option value="banana">Banana</option>
-                <option value="beef">Beef</option>
-                <option value="bell pepper">Bell pepper</option>
-                <option value="bread">Bread</option>
-                <option value="butter">Butter</option>
-                <option value="carrot">Carrot</option>
-                <option value="cheddar">Cheddar</option>
-                <option value="cheese">Cheese</option>
-                <option value="chicken">Chicken</option>
-                <option value="chicken stock">Chicken stock</option>
-                <option value="egg">Egg</option>
-                <option value="eggplant">Eggplant</option>
-                <option value="garlic">Garlic</option>
-                <option value="ginger">Ginger</option>
-                <option value="kale">Kale</option>
-                <option value="milk">Milk</option>
-                <option value="parmesan">Parmesan</option>
-                <option value="peach">Peach</option>
-                <option value="pork">Pork</option>
-                <option value="raspberry">Raspberry</option>
-                <option value="red onion">Red Onion</option>
-                <option value="rice">Rice</option>
-                <option value="ricotta">Ricotta</option>
-                <option value="soy sauce">Soy sauce</option>
-                <option value="spinach">Spinach</option>
-                <option value="strawberry">Strawberry</option>
-                <option value="sugar">Sugar</option>
-                <option value="tomato">Tomato</option>
-                <option value="tomato sauce">Tomato sauce</option>
-                <option value="yellow onion">Yellow onion</option>
-            </select>
-        </div>
+                    <div class="choice2">
+                        <select name="ingredientTwo" id="ingredientTwo">
+                            <option value="">None</option>
+                            <option value="apple">Apple</option>
+                            <option va lue="asiago">Asiago</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="banana">Banana</option>
+                            <option value="beef">Beef</option>
+                            <option value="bell pepper">Bell pepper</option>
+                            <option value="bread">Bread</option>
+                            <option value="butter">Butter</option>
+                            <option value="carrot">Carrot</option>
+                            <option value="cheddar">Cheddar</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="chicken stock">Chicken stock</option>
+                            <option value="egg">Egg</option>
+                            <option value="eggplant">Eggplant</option>
+                            <option value="garlic">Garlic</option>
+                            <option value="ginger">Ginger</option>
+                            <option value="kale">Kale</option>
+                            <option value="milk">Milk</option>
+                            <option value="parmesan">Parmesan</option>
+                            <option value="peach">Peach</option>
+                            <option value="pork">Pork</option>
+                            <option value="raspberry">Raspberry</option>
+                            <option value="red onion">Red Onion</option>
+                            <option value="rice">Rice</option>
+                            <option value="ricotta">Ricotta</option>
+                            <option value="soy sauce">Soy sauce</option>
+                            <option value="spinach">Spinach</option>
+                            <option value="strawberry">Strawberry</option>
+                            <option value="sugar">Sugar</option>
+                            <option value="tomato">Tomato</option>
+                            <option value="tomato sauce">Tomato sauce</option>
+                            <option value="yellow onion">Yellow onion</option>
+                        </select>
+                    </div>
 
-            <div class="choice3">
-                <select name="ingredientThree" id="ingredientThree">
-                    <option value="">None</option>
-                    <option value="apple">Apple</option>
-                    <option value="asiago">Asiago</option>
-                    <option value="bacon">Bacon</option>
-                    <option value="banana">Banana</option>
-                    <option value="beef">Beef</option>
-                    <option value="bell pepper">Bell pepper</option>
-                    <option value="bread">Bread</option>
-                    <option value="butter">Butter</option>
-                    <option value="carrot">Carrot</option>
-                    <option value="cheddar">Cheddar</option>
-                    <option value="cheese">Cheese</option>
-                    <option value="chicken">Chicken</option>
-                    <option value="chicken stock">Chicken stock</option>
-                    <option value="egg">Egg</option>
-                    <option value="eggplant">Eggplant</option>
-                    <option value="garlic">Garlic</option>
-                    <option value="ginger">Ginger</option>
-                    <option value="kale">Kale</option>
-                    <option value="milk">Milk</option>
-                    <option value="parmesan">Parmesan</option>
-                    <option value="peach">Peach</option>
-                    <option value="pork">Pork</option>
-                    <option value="raspberry">Raspberry</option>
-                    <option value="red onion">Red Onion</option>
-                    <option value="rice">Rice</option>
-                    <option value="ricotta">Ricotta</option>
-                    <option value="soy sauce">Soy sauce</option>
-                    <option value="spinach">Spinach</option>
-                    <option value="strawberry">Strawberry</option>
-                    <option value="sugar">Sugar</option>
-                    <option value="tomato">Tomato</option>
-                    <option value="tomato sauce">Tomato sauce</option>
-                    <option value="yellow onion">Yellow onion</option>
-                </select>
+                    <div class="choice3">
+                        <select name="ingredientThree" id="ingredientThree">
+                            <option value="">None</option>
+                            <option value="apple">Apple</option>
+                            <option value="asiago">Asiago</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="banana">Banana</option>
+                            <option value="beef">Beef</option>
+                            <option value="bell pepper">Bell pepper</option>
+                            <option value="bread">Bread</option>
+                            <option value="butter">Butter</option>
+                            <option value="carrot">Carrot</option>
+                            <option value="cheddar">Cheddar</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="chicken stock">Chicken stock</option>
+                            <option value="egg">Egg</option>
+                            <option value="eggplant">Eggplant</option>
+                            <option value="garlic">Garlic</option>
+                            <option value="ginger">Ginger</option>
+                            <option value="kale">Kale</option>
+                            <option value="milk">Milk</option>
+                            <option value="parmesan">Parmesan</option>
+                            <option value="peach">Peach</option>
+                            <option value="pork">Pork</option>
+                            <option value="raspberry">Raspberry</option>
+                            <option value="red onion">Red Onion</option>
+                            <option value="rice">Rice</option>
+                            <option value="ricotta">Ricotta</option>
+                            <option value="soy sauce">Soy sauce</option>
+                            <option value="spinach">Spinach</option>
+                            <option value="strawberry">Strawberry</option>
+                            <option value="sugar">Sugar</option>
+                            <option value="tomato">Tomato</option>
+                            <option value="tomato sauce">Tomato sauce</option>
+                            <option value="yellow onion">Yellow onion</option>
+                        </select>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="pantry">
+                    <span>Your Ingredients</span>
+                    <ul class="pantry-list">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </div>
+        </section>
+
+        <section class="results">
+            <div class="modal" id="moreInfoModal">
+                <div class="modalDisplay">
+                    <h4 id="cuisines"></h4>
+                    <p id="sourceInfo"></p>
+                    <p id="dishInfo"></p>
+                    <p id="webAddress"></p>
+                    <h3>Ingredients</h3>
+                    <ul id="extendedIngredients"></ul>
+                    <h3>Missing Ingredients</h3>
+                    <ul id="missingIngredients"></ul>
+                </div>
             </div>
-            <input type="submit" value="Submit">
-        </form>
-    </section>
+        </section>
+    </main>
 
-    <section class="results">
-    </section>
-</main>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
