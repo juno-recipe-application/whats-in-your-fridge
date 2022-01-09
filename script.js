@@ -25,7 +25,7 @@ recipeApp.getRecipes = () => {
         fillIngredients: true,
         number: 3,
         apiKey: recipeApp.apiKey,
-        limitLicense: true,
+        // limitLicense: true,
         // ranking: 1,
         ignorePantry: true
     });
@@ -63,6 +63,7 @@ recipeApp.getUserInput = () => {
     // create an event listener that will submit form on click
     userForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
 
         // create an array of ingredients from form to submit to api
 
