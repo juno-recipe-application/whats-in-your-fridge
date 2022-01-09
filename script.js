@@ -58,7 +58,7 @@ recipeApp.getRecipes = () => {
 recipeApp.getUserInput = () => {
 
     // DOM to select form
-    const userForm = document.getElementById('userForm')
+    const userForm = document.getElementById('userForm');
 
     // create an event listener that will submit form on click
     userForm.addEventListener('submit', (e) => {
@@ -101,6 +101,8 @@ recipeApp.displayRecipes = (apiData) => {
     // empty our results section somehow
 
     apiData.forEach((recipe) => {
+
+
         // create divs with class for styling
         const divElement = document.createElement('div');
         divElement.setAttribute('class', "recipe-container");
