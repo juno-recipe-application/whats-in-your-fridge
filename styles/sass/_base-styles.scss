@@ -2,10 +2,29 @@
 
 html {
     font-size: 125%;
-    body {
+    main {
+        input, button {
+            font-size: 1rem;
+            font-family: "TelegrafBold";
+            letter-spacing: 1px;
+            border: 2px solid black;
+            border-radius: 15px;
+            width: 300px;
+            height: 50px;
+            background-color: white;
+            text-transform: uppercase;
+        }
+        input:hover, button:hover  {
+            cursor: pointer;
+            background-color: rgba(10, 10, 10, 0.4);
+        }
+        ul {
+            list-style-type: none;
+        }
         h1 {
             font-size: 2rem;
             font-family: "ObjectBold";
+            margin: 20px 0px 20px 0px;
         }
         h3 {
             font-size: 1rem;
@@ -22,7 +41,7 @@ html {
             font-family: "TelegrafBold";
             text-transform: uppercase;
         }
-        p, select {
+        p, select, li {
             font-family: "TelegrafRegular";
         }
         select {
@@ -37,24 +56,12 @@ html {
             height: 50px;
             padding: 10px;
         }
+        select:hover {
+            cursor: pointer;
+            background-color: rgba(150, 150, 150, 0.4);
+        }
         option {
             font-family: "Helvetica";
-        }
-        input, button {
-            font-size: 1rem;
-            font-family: "TelegrafBold";
-            letter-spacing: 1px;
-            border: 2px solid black;
-            border-radius: 15px;
-            width: 300px;
-            height: 50px;
-            background-color: white;
-            text-transform: uppercase;
-        }
-        span .recipe-name {
-            font-size: 0.8rem;
-            font-family: 'Readex Pro', sans-serif;
-            font-weight: 600;
         }
     }
 }
