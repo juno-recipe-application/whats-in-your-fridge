@@ -32,7 +32,11 @@ recipeApp.getRecipes = () => {
 
     fetch(url)
         .then((response) => {
-            return response.json();
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error ("Oh no, the API call wasn't successful.");
+            }
         }).then((jsonData) => {
 
             // Push recipes into global array
@@ -42,6 +46,10 @@ recipeApp.getRecipes = () => {
 
             console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
+        })
+        .catch((err) => {
+            const results = document.getElementsByClassName('results');
+            results.innerHTML = "<span>Sorry, our database is down :(</span>"
         });
 }
 
