@@ -64,6 +64,7 @@ recipeApp.getUserInput = () => {
     userForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        recipeApp.recipes = [];
 
         // create an array of ingredients from form to submit to api
 

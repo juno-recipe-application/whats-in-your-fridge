@@ -2,6 +2,7 @@ body{
   main{
     .results{
       .modal {
+        overflow: auto;
         visibility: hidden;
         position: fixed; 
         z-index: 1; 
