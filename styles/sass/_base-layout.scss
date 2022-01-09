@@ -36,8 +36,12 @@ body {
             .pantry {
                 margin-top: 25px;
                 width: 475px;
+                height: 200px;
                 background-color: #eaf7fa;
                 border-radius: 15px;
+                .yourIgredients{
+                    padding: 20px;
+                }
                 h2 {
                     padding: 10px 0px 5px 20px;
                 }

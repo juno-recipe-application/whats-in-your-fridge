@@ -378,8 +378,12 @@ body main .sidebar .select form input {
 body main .sidebar .pantry {
   margin-top: 25px;
   width: 475px;
+  height: 200px;
   background-color: #eaf7fa;
   border-radius: 15px;
+}
+body main .sidebar .pantry .yourIgredients {
+  padding: 20px;
 }
 body main .sidebar .pantry h2 {
   padding: 10px 0px 5px 20px;
