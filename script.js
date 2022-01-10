@@ -16,7 +16,6 @@ recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
 //recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
 
-
 // API call
 recipeApp.getRecipes = () => {
 
@@ -28,11 +27,8 @@ recipeApp.getRecipes = () => {
         fillIngredients: true,
         number: 3,
         apiKey: recipeApp.apiKey,
-        // limitLicense: true,
-        // ranking: 1,
         ignorePantry: true
     });
-
 
     fetch(url)
         .then((response) => {
@@ -47,29 +43,37 @@ recipeApp.getRecipes = () => {
             jsonData.results.forEach((recipe) => {
                 recipeApp.recipes.push(recipe);
             })
-
             console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
-
         })
         .catch((err) => {
-            // const results = document.getElementsByClassName('results');
             results.innerHTML = "<span>Sorry, our database is down :(</span>"
         });
 }
 
-recipeApp.clearResults = () => {
-    //empty the results
-    let elements = document.getElementsByClassName('recipe-container');
-    console.log(elements);
+// button to reload screen to reset app for new API call
+// get button from html
+const refreshButton = document.querySelector('#reloadBtn');
 
-    document.querySelectorAll('.recipe-container').forEach(e => e.remove());
+// create function to reset
+function refresh() {
+    refresh = location.reload()
 }
 
+// add event listener to button for reset
+refreshButton.addEventListener('click', refresh, false);
+
+
+// recipeApp.clearResults = () => {
+//     //empty the results
+//     let elements = document.getElementsByClassName('recipe-container');
+//     console.log(elements);
+
+//     document.querySelectorAll('.recipe-container').forEach(e => e.remove());
+// }
 
 // capture user ingredient choices 
 recipeApp.getUserInput = () => {
-
 
     // DOM to select form
     const userForm = document.getElementById('userForm');
@@ -77,7 +81,6 @@ recipeApp.getUserInput = () => {
     // create an event listener that will submit form on click
     userForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
 
         // create an array of ingredients from form to submit to api
 
@@ -102,11 +105,8 @@ recipeApp.getUserInput = () => {
         UserSelection2.innerText = recipeApp.userChoices[1];
         UserSelection3.innerText = recipeApp.userChoices[2];
 
-
         // call it
         recipeApp.getRecipes();
-
-
     });
 }
 
@@ -117,7 +117,6 @@ recipeApp.displayRecipes = (apiData) => {
     // empty our results section somehow
 
     apiData.forEach((recipe) => {
-
 
         // create divs with class for styling
         const divElement = document.createElement('div');
