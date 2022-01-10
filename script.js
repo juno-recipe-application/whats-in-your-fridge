@@ -13,7 +13,7 @@ recipeApp.recipes = [];
 
 // Store url and key on app object as a property
 recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
-//recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
+// recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
 recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
 
 // API call
@@ -47,25 +47,15 @@ recipeApp.getRecipes = () => {
             recipeApp.displayRecipes(recipeApp.recipes);
         })
         .catch((err) => {
+            const results = document.querySelector('results');
             results.innerHTML = "<span>Sorry, our database is down :(</span>"
         });
 }
 
-// button to reload screen to reset app for new API call
-// get button from html
-const refreshButton = document.querySelector('#reloadBtn');
-
-// create function to reset
-function refresh() {
-    refresh = location.reload()
-}
-
-// add event listener to button for reset
-refreshButton.addEventListener('click', refresh, false);
 
 
 // recipeApp.clearResults = () => {
-//     //empty the results
+    //     //empty the results
 //     let elements = document.getElementsByClassName('recipe-container');
 //     console.log(elements);
 
@@ -74,55 +64,67 @@ refreshButton.addEventListener('click', refresh, false);
 
 // capture user ingredient choices 
 recipeApp.getUserInput = () => {
-
+    
     // DOM to select form
     const userForm = document.getElementById('userForm');
-
+    
     // create an event listener that will submit form on click
     userForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
-
+        
+        
         recipeApp.recipes = [];
-
-
+        
+        
         // new-feature-clear-results
         // create an array of ingredients from form to submit to api
-
+        
         //if using individual select boxes in HTML
         recipeApp.userChoices[0] = document.getElementById("ingredientOne").value;
         recipeApp.userChoices[1] = document.getElementById("ingredientTwo").value;
         recipeApp.userChoices[2] = document.getElementById("ingredientThree").value;
-
+        
         // could use this as a prompt to display as html to double confirm choices 
-
+        
         console.log("You have selected: " + recipeApp.userChoices);
-
+        
         // displaying user choice on pantry div on main page
-
+        
         // get li's from html
         const UserSelection1 = document.getElementById('item1')
         const UserSelection2 = document.getElementById('item2')
         const UserSelection3 = document.getElementById('item3')
-
+        
         // put the user choices on each li
         UserSelection1.innerText = recipeApp.userChoices[0];
         UserSelection2.innerText = recipeApp.userChoices[1];
         UserSelection3.innerText = recipeApp.userChoices[2];
-
+        
         // call it
         recipeApp.getRecipes();
+
+        // button to reload screen to reset app for new API call
+        // get button from html
+        const refreshButton = document.querySelector('#reload-btn');
+        
+        // create function to reset
+        function refresh() {
+            refresh = location.reload()
+        }
+        
+        // add event listener to button for reset
+        refreshButton.addEventListener('click', refresh, false);
     });
 }
 
 recipeApp.displayRecipes = (apiData) => {
     // get our result section
     const recipeSection = document.getElementsByClassName('results');
-
+    
     // empty our results section somehow
-
+    
     apiData.forEach((recipe) => {
-
+        
         // create divs with class for styling
         const divElement = document.createElement('div');
         divElement.setAttribute('class', "recipe-container");
@@ -151,25 +153,23 @@ recipeApp.displayRecipes = (apiData) => {
         recipeSection[0].appendChild(divElement);
 
         // get div element for modal
-        const modal = document.getElementById("moreInfoModal");
+        const modal = document.getElementById("more-info-modal");
 
         // event listener for modal button
         infoButton.addEventListener('click', function () {
-            document.getElementById('moreInfoModal').style.visibility = 'visible';
+            document.getElementById('more-info-modal').style.visibility = 'visible';
 
             // get all elements from modal div
-            const cuisineInfo = document.getElementById('cuisines');
-            const source = document.getElementById('sourceInfo');
-            const summeryInfo = document.getElementById('dishInfo');
-            const urlInfo = document.getElementById('webAddress');
-            const extendedIngredients = document.getElementById('extendedIngredients');
-            const missingIngredients = document.getElementById('missingIngredients');
+            const source = document.getElementById('source-info');
+            const summeryInfo = document.getElementById('dish-info');
+            const urlInfo = document.getElementById('web-address');
+            const extendedIngredients = document.getElementById('extended-ingredients');
+            const missingIngredients = document.getElementById('missing-ingredients');
 
             // fill modal with info
-            cuisineInfo.innerHTML = recipe.cuisines;
             source.innerText = recipe.sourceName;
             summeryInfo.innerHTML = recipe.summary;
-            urlInfo.innerHTML = recipe.spoonacularSourceUrl;
+            urlInfo.innerHTML = `<a href="${recipe.spoonacularSourceUrl}">More Info & Instructions</a>`;
 
             // loop through extended ingredients array and display each item
             recipe.extendedIngredients.forEach((item) => {
@@ -187,8 +187,8 @@ recipeApp.displayRecipes = (apiData) => {
         });
 
         window.addEventListener('click', function (event) {
-            if (event.target == moreInfoModal) {
-                document.getElementById('moreInfoModal').style.visibility = "hidden"
+            if (event.target == modal) {
+                document.getElementById('more-info-modal').style.visibility = "hidden"
             }
         })
     })

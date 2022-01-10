@@ -358,8 +358,15 @@ body main .sidebar {
           align-items: center;
 }
 body main .sidebar .select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 475px;
-  height: 580px;
+  height: 550px;
   padding-left: 20px;
   background-color: #eaf7fa;
   border-radius: 15px;
@@ -375,12 +382,15 @@ body main .sidebar .select form select {
 }
 body main .sidebar .select form input {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+body main .sidebar .select #reload-btn {
+  margin-bottom: 20px;
 }
 body main .sidebar .pantry {
   margin-top: 25px;
   width: 475px;
-  height: 200px;
+  height: 150px;
   background-color: #eaf7fa;
   border-radius: 15px;
 }
@@ -449,7 +459,7 @@ body main .results .modal {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
 }
-body main .results .modalDisplay {
+body main .results .modal-display {
   background-color: white;
   margin: 15% auto;
   padding: 5px;
