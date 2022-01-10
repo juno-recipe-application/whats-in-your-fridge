@@ -358,6 +358,7 @@ body main .sidebar {
 }
 body main .sidebar .select {
   width: 475px;
+  height: 580px;
   padding-left: 20px;
   background-color: #eaf7fa;
   border-radius: 15px;
@@ -389,6 +390,7 @@ body main .sidebar .pantry h2 {
   padding: 10px 0px 5px 20px;
 }
 body main .results {
+  background-color: #d0e4e9;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
