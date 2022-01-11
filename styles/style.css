@@ -258,6 +258,7 @@ html {
 /* =============== BASE STYLES ================= */
 html {
   font-size: 125%;
+  background-color: #8dd7e9;
 }
 html main input, html main button {
   font-size: 1rem;
