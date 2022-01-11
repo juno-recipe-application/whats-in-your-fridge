@@ -13,8 +13,8 @@ recipeApp.recipes = [];
 
 // Store url and key on app object as a property
 recipeApp.url = 'https://api.spoonacular.com/recipes/complexSearch'
-// recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
-recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
+recipeApp.apiKey = '8f522d9d9210471691590e0132190021'
+// recipeApp.apiKey = '6ca6794922364918a232cd5884e479a0'
 
 // API call
 recipeApp.getRecipes = () => {
@@ -25,7 +25,7 @@ recipeApp.getRecipes = () => {
         includeIngredients: recipeApp.userChoices,
         addRecipeInformation: true,
         fillIngredients: true,
-        number: 3,
+        number: 10,
         apiKey: recipeApp.apiKey,
         ignorePantry: true
     });
@@ -43,7 +43,6 @@ recipeApp.getRecipes = () => {
             jsonData.results.forEach((recipe) => {
                 recipeApp.recipes.push(recipe);
             })
-            console.log(recipeApp.recipes);
             recipeApp.displayRecipes(recipeApp.recipes);
         })
         .catch((err) => {
@@ -51,16 +50,6 @@ recipeApp.getRecipes = () => {
             results.innerHTML = "<span>Sorry, our database is down :(</span>"
         });
 }
-
-
-
-// recipeApp.clearResults = () => {
-    //     //empty the results
-//     let elements = document.getElementsByClassName('recipe-container');
-//     console.log(elements);
-
-//     document.querySelectorAll('.recipe-container').forEach(e => e.remove());
-// }
 
 // capture user ingredient choices 
 recipeApp.getUserInput = () => {
@@ -72,21 +61,10 @@ recipeApp.getUserInput = () => {
     userForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        
-        recipeApp.recipes = [];
-        
-        
-        // new-feature-clear-results
-        // create an array of ingredients from form to submit to api
-        
         //if using individual select boxes in HTML
         recipeApp.userChoices[0] = document.getElementById("ingredientOne").value;
         recipeApp.userChoices[1] = document.getElementById("ingredientTwo").value;
         recipeApp.userChoices[2] = document.getElementById("ingredientThree").value;
-        
-        // could use this as a prompt to display as html to double confirm choices 
-        
-        console.log("You have selected: " + recipeApp.userChoices);
         
         // displaying user choice on pantry div on main page
         
@@ -144,7 +122,6 @@ recipeApp.displayRecipes = (apiData) => {
         infoButton.innerText = 'See More';
 
         // append info to our div elements
-
         divElement.appendChild(image);
         divElement.appendChild(recipeHeading);
         divElement.appendChild(infoButton);

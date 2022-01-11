@@ -19,6 +19,11 @@ body{
           padding: 5px;
           border: 1px solid black;
           width: 50%;
+          padding: 20px;
+          ul {
+            list-style-type: circle;
+            padding-left: 20px;
+          }
       }
     }
   }

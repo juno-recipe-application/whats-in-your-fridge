@@ -340,7 +340,7 @@ body main {
 }
 body main .sidebar {
   width: 700px;
-  height: 100vh;
+  height: 100%;
   background-color: #8dd7e9;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -465,6 +465,11 @@ body main .results .modal-display {
   padding: 5px;
   border: 1px solid black;
   width: 50%;
+  padding: 20px;
+}
+body main .results .modal-display ul {
+  list-style-type: circle;
+  padding-left: 20px;
 }
 
 @media (max-width: 780px) {
