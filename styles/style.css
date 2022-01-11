@@ -265,14 +265,14 @@ html main input, html main button {
   letter-spacing: 1px;
   border: 2px solid black;
   border-radius: 15px;
-  width: 300px;
+  width: 275px;
   height: 50px;
   background-color: white;
   text-transform: uppercase;
 }
 html main input:hover, html main button:hover {
   cursor: pointer;
-  background-color: rgba(75, 75, 75, 0.4);
+  background-color: rgba(214, 214, 214, 0.4);
   -webkit-box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
           box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
   -webkit-transition: background-color 0.2s ease-out;
@@ -375,14 +375,14 @@ body main .sidebar .select h1 {
   padding-top: 15px;
 }
 body main .sidebar .select span {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 body main .sidebar .select form select {
   margin-top: 10px;
 }
 body main .sidebar .select form input {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 body main .sidebar .select #reload-btn {
   margin-bottom: 20px;
